@@ -20,6 +20,10 @@
 
 2021-05-19: 完成我的 和 想看页面
 
+## 项目截图
+
+![image-20210519204621344](./doc/imgs/1.png)![image-20210519204602488](./doc/imgs/2.png)![image-20210519204545385](./doc/imgs/3.png)
+
 ## 项目构建
 
     create-react-app my-project --template typescript
