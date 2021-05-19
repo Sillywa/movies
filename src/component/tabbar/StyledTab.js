@@ -7,6 +7,7 @@ const TabBarContainer = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+  height:56px;
 `
 
 const TabItemContainer = styled.div`

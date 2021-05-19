@@ -15,7 +15,7 @@ import Wants from "./pages/wants/Wants";
 import Profile from "./pages/profile/Profile";
 
 const App = () => (
-  <div>
+  <div id="app">
     <TabBar defaultActiveKey="1">
       <TabBarItem
         tabKey="1"

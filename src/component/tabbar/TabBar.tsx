@@ -53,7 +53,7 @@ class TabBar extends Component<IProps, IState> {
   render() {
     return (
       <>
-        <div>{this.renderContent()}</div>
+        {this.renderContent()}
         <TabBarContainer>{this.renderHeader()}</TabBarContainer>
       </>
     );

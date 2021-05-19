@@ -18,6 +18,8 @@
 
 2021-05-18： 完成 TabBar 组件的封装，完成 MoviesList 组件，完成滑动到底部加载下一页数据
 
+2021-05-19: 完成我的 和 想看页面
+
 ## 项目构建
 
     create-react-app my-project --template typescript

@@ -1,0 +1,28 @@
+import React from "react";
+import WantItem from "./WantItem";
+
+import { WantListContainer } from "./styledChild";
+
+interface IProps {
+  data: Array<any>;
+  handleScroll?: Function;
+}
+// const WantList = React.forwardRef((props: IProps, ref:any) => (
+//   <WantListContainer onScroll={props.handleScroll}>
+//     {props.data.map((item) => (
+//       <WantItem {...item} key={item.serial_number} />
+//     ))}
+//     {/* <p className="loading" ref={ref}>加载中...</p> */}
+//   </WantListContainer>
+// ));
+
+const WantList = (props: IProps) => (
+  <WantListContainer onScroll={props.handleScroll}>
+    {props.data.map((item) => (
+      <WantItem {...item} key={item.serial_number} />
+    ))}
+    {/* <p className="loading" ref={ref}>加载中...</p> */}
+  </WantListContainer>
+)
+
+export default WantList;

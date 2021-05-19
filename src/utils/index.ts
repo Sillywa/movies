@@ -6,5 +6,6 @@ export function debounce(fn: Function, delay: number): Function {
       clearTimeout(timer)
     }
     timer = setTimeout(fn, delay)
+    return timer
   }
 }

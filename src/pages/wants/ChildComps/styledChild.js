@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MovieListContainer = styled.div`
+const WantListContainer = styled.div`
   background-color: #fff;
   padding: 0px 10px;
   overflow-y: scroll;
@@ -15,7 +15,7 @@ const MovieListContainer = styled.div`
   }
 `;
 
-const MovieItemContainer = styled.div`
+const WantItemContainer = styled.div`
   display: flex;
   margin-top: 10px;
   padding-bottom: 10px;
@@ -69,4 +69,4 @@ const MovieItemContainer = styled.div`
   }
 `;
 
-export { MovieItemContainer, MovieListContainer };
+export { WantItemContainer, WantListContainer };
