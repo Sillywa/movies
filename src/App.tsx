@@ -1,4 +1,4 @@
-import TabBar from "./component/tabbar/TabBar";
+import TabBar from "@c/tabbar/TabBar";
 import TabBarItem from "./component/tabbar/TabBarItem";
 
 import movies from "./asset/imgs/movies.svg";

@@ -122,5 +122,91 @@
    </TabBar>
    ```
 
+4. React + TS 使用 config-overrides.js 自定义 webpack 配置无效
+
+   解决办法：
+
+   正常情况下，我们的配置文件如下：
+
+   ```js
+   const { override, addWebpackAlias } = require("customize-cra")
+   const path = require("path")
+   
+   module.exports = override(
+     addWebpackAlias({
+       ["@"]: path.resolve(__dirname, "src"),
+       ["@a"]: path.resolve(__dirname, "src/asset"),
+       ["@c"]: path.resolve(__dirname, "src/component")
+     })
+   )
+   ```
+
+   在更改 package.json 之后，使用 react-app-rewired 去启动项目，发现别名并未设置成功。
+
+   这里再 GitHub 有一个 [issues](https://github.com/facebook/create-react-app/issues/5645)，提供了解决办法。
+
+   修改 tsconfig.json 文件
+
+   ```json
+   {
+     "compilerOptions": {
+       "baseUrl": ".",
+       "paths": {
+         "@/*":["src/*"]
+       }
+     }
+   }
+   ```
+
+   如何我们直接这样新增，再次运行项目会发现，新增的内容被自动删除了。因此我们需要新建一个 path.json 文件，写入配置信息，然后使用 extends 选项去配置 tsconfig
+
+   path.json
+
+   ```json
+   {
+     "compilerOptions": {
+       "baseUrl": ".",
+       "paths": {
+         "@/*": ["src/*"],
+         "@c/*": ["src/component/*"],
+         "@a/*": ["src/asset/*"]
+       }
+     }
+   }
+   ```
+
+   tsconfig.json
+
+   ```json
+   {
+     "extends": "./path.json",
+     "compilerOptions": {
+       "target": "es5",
+       "lib": [
+         "dom",
+         "dom.iterable",
+         "esnext"
+       ],
+       "allowJs": true,
+       "skipLibCheck": true,
+       "esModuleInterop": true,
+       "allowSyntheticDefaultImports": true,
+       "strict": true,
+       "forceConsistentCasingInFileNames": true,
+       "noFallthroughCasesInSwitch": true,
+       "module": "esnext",
+       "moduleResolution": "node",
+       "resolveJsonModule": true,
+       "isolatedModules": true,
+       "noEmit": true,
+       "jsx": "react-jsx"
+     },
+     "include": [
+       "src"
+     ]
+   }
+   
+   ```
+
    
 
