@@ -1,11 +1,11 @@
 import React from "react"
 import ListItem from "./ListItem"
 
-import message from "../../../../asset/imgs/info.svg"
-import profile from "../../../../asset/imgs/profile.svg"
-import address from "../../../../asset/imgs/address.svg"
-import service from "../../../../asset/imgs/service.svg"
-import bank from "../../../../asset/imgs/bank.svg"
+import message from "@a/imgs/info.svg"
+import profile from "@a/imgs/profile.svg"
+import address from "@a/imgs/address.svg"
+import service from "@a/imgs/service.svg"
+import bank from "@a/imgs/bank.svg"
 
 const Lists = () => (
   <div>

@@ -1,5 +1,5 @@
 import React from "react";
-import right from "../../../../asset/imgs/right.svg"
+import right from "@a/imgs/right.svg"
 
 import {ListItemCon} from "./styledLists"
 

@@ -1,6 +1,6 @@
 import React from "react";
-import setting from "../../../asset/imgs/setting.svg"
-import avator from "../../../asset/imgs/avator.jpg"
+import setting from "@a/imgs/setting.svg"
+import avator from "@a/imgs/avator.jpg"
 
 import { AvatorCon } from "./styledChild"
 

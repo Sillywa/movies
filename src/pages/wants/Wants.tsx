@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Header from "../../component/header/Header";
+import Header from "@c/header/Header";
 import WantList from "./ChildComps/WantList";
 
-import { getMovies } from "../../api";
+import { getMovies } from "@/api";
 import {WantsCon} from "./styledWants"
 
 interface IState {

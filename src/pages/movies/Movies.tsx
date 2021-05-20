@@ -1,12 +1,12 @@
 import React, { Component, createRef } from 'react'
-import Header from '../../component/header/Header'
+import Header from '@c/header/Header'
 import MoviesList from './ChildComps/MoviesList'
 
 import { MovieCon } from './styledMovies';
 
-import { getMovies } from "../../api";
+import { getMovies } from "@/api";
 
-import {debounce} from "../../utils"
+import {debounce} from "@/utils"
 
 interface IState {
   data: Array<any>;

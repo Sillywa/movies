@@ -2,9 +2,9 @@ import React from "react";
 import {OrdersCon} from "./styledOrders"
 import OrderItem from "./OrderItem";
 
-import movie from "../../../../asset/imgs/movie.svg"
-import actor from "../../../../asset/imgs/actor.svg"
-import box from "../../../../asset/imgs/box.svg"
+import movie from "@a/imgs/movie.svg"
+import actor from "@a/imgs/actor.svg"
+import box from "@a/imgs/box.svg"
 
 const Orders = () => (
   <OrdersCon>

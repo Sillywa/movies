@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import Header from '../../component/header/Header'
 
 import Avator from './ChildComps/Avator'
 import Panel from './ChildComps/Panel'

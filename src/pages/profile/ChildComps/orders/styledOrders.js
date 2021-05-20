@@ -11,7 +11,7 @@ const OrdersCon = styled.div`
   display: flex;
   justify-content: space-around;
   & > div {
-    width: 30%auto;
+    width: 30%;
   }
 `
 

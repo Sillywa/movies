@@ -1,49 +1,60 @@
 import TabBar from "@c/tabbar/TabBar";
-import TabBarItem from "./component/tabbar/TabBarItem";
+import TabBarItem from "@c/tabbar/TabBarItem";
 
-import movies from "./asset/imgs/movies.svg";
-import movies_active from "./asset/imgs/movies_active.svg";
-import want from "./asset/imgs/want.svg";
-import want_active from "./asset/imgs/want_active.svg";
-import profile from "./asset/imgs/profile.svg";
-import profile_active from "./asset/imgs/profile_active.svg";
+import movies from "@a/imgs/movies.svg";
+import movies_active from "@a/imgs/movies_active.svg";
+import want from "@a/imgs/want.svg";
+import want_active from "@a/imgs/want_active.svg";
+import profile from "@a/imgs/profile.svg";
+import profile_active from "@a/imgs/profile_active.svg";
 
-import "./asset/styles/base.css";
+import "@a/styles/base.css";
 
-import Movies from "./pages/movies/Movies";
-import Wants from "./pages/wants/Wants";
-import Profile from "./pages/profile/Profile";
+import Movies from "@/pages/movies/Movies";
+import Wants from "@/pages/wants/Wants";
+import Profile from "@/pages/profile/Profile";
+import Detail from "@/pages/detail/Detail";
+
+import { Route, Switch, Redirect } from "react-router-dom";
 
 const App = () => (
   <div id="app">
-    <TabBar defaultActiveKey="1">
-      <TabBarItem
-        tabKey="1"
-        icon={movies}
-        activeIcon={movies_active}
-        title="电影"
-      >
-        <Movies />
-      </TabBarItem>
+    <Switch>
+      <Route path="/home">
+        <TabBar defaultActiveKey="1">
+          <TabBarItem
+            tabKey="1"
+            icon={movies}
+            activeIcon={movies_active}
+            title="电影"
+          >
+            <Movies />
+          </TabBarItem>
 
-      <TabBarItem 
-        icon={want} 
-        activeIcon={want_active} 
-        title="想看" 
-        tabKey="2"
-      >
-        <Wants />
-      </TabBarItem>
+          <TabBarItem
+            icon={want}
+            activeIcon={want_active}
+            title="想看"
+            tabKey="2"
+          >
+            <Wants />
+          </TabBarItem>
 
-      <TabBarItem
-        icon={profile}
-        activeIcon={profile_active}
-        title="我的"
-        tabKey="3"
-      >
-        <Profile />
-      </TabBarItem>
-    </TabBar>
+          <TabBarItem
+            icon={profile}
+            activeIcon={profile_active}
+            title="我的"
+            tabKey="3"
+          >
+            <Profile />
+          </TabBarItem>
+        </TabBar>
+      </Route>
+      <Route path="/detail/:id">
+        <Detail></Detail> 
+      </Route>
+      <Redirect from="/" to="/home" />
+    </Switch>
   </div>
 );
 

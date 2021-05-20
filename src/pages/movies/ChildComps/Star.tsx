@@ -1,7 +1,7 @@
 import React from "react";
 
-import star_normal from "../../../asset/imgs/star.svg"
-import star_active from "../../../asset/imgs/star_active.svg"
+import star_normal from "@a/imgs/star.svg"
+import star_active from "@a/imgs/star_active.svg"
 
 import { StarContainer } from "./styledChild"
 

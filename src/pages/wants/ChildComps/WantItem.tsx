@@ -1,9 +1,6 @@
 import React from 'react'
 import { WantItemContainer } from "./styledChild"
 
-// import want_to_see from "../../../asset/imgs/want_to_see.svg"
-// import already_want from "../../../asset/imgs/already_want.svg"
-
 interface IWantItem {
   describe: string,
   evaluate: string,

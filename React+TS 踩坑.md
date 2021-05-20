@@ -122,7 +122,7 @@
    </TabBar>
    ```
 
-4. React + TS 使用 config-overrides.js 自定义 webpack 配置无效
+4. **React + TS 使用 config-overrides.js 自定义 webpack 配置无效**
 
    解决办法：
 
@@ -143,7 +143,7 @@
 
    在更改 package.json 之后，使用 react-app-rewired 去启动项目，发现别名并未设置成功。
 
-   这里再 GitHub 有一个 [issues](https://github.com/facebook/create-react-app/issues/5645)，提供了解决办法。
+   这里在 GitHub 有一个 [issues](https://github.com/facebook/create-react-app/issues/5645)，提供了解决办法。
 
    修改 tsconfig.json 文件
 
@@ -206,6 +206,14 @@
      ]
    }
    
+   ```
+
+5. **React + TS 直接使用 react-router-dom 会报类型错误**
+
+   安装 @types/react-router-dom 库
+
+   ```shell
+   yarn add -D @types/react-router-dom
    ```
 
    

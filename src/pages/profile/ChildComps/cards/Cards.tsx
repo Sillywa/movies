@@ -3,8 +3,8 @@ import CardItem from "./CardItem"
 
 import {CardsCon} from "./styledCards"
 
-import card from "../../../../asset/imgs/card1.svg"
-import vip from "../../../../asset/imgs/vip.svg"
+import card from "@a/imgs/card1.svg"
+import vip from "@a/imgs/vip.svg"
 
 const Cards = () => (
   <CardsCon>
