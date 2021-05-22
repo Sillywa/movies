@@ -10,6 +10,15 @@ const ProfileCon = styled.div`
     overflow-y: scroll;
     height: 100vh;
   }
+  .panel {
+    margin: 10px;
+    padding: 0;
+  }
+  .panel-header {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-top: 10px;
+  }
 `
 
 export {

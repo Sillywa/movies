@@ -21,21 +21,9 @@ const AvatorCon = styled.div`
     border-radius: 50%;
   }
 `
-const PanelCon = styled.div`
-  background-color: #fff;
-  margin: 0 10px;
-  margin-top: 10px;
-  border-radius: 8px;
-  header {
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding: 10px;
-  }
-`
 
 
 export {
-  AvatorCon,
-  PanelCon
+  AvatorCon
 }
 

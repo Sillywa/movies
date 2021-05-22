@@ -1,9 +1,24 @@
 import React from 'react'
+import ComItem from "./ComItem"
+import {CommentListCon} from "./styledComment"
+interface IComment {
+  name: string;
+  date: string;
+  star: string;
+  content: string;
+}
 
-export default function ComList() {
+interface IProps {
+  comments: Array<IComment>;
+}
+
+export default function ComList({comments}:IProps) {
   return (
-    <div>
-      
-    </div>
+    <CommentListCon>
+      <header>精选评论</header>
+      {comments.map((item, i) => (
+        <ComItem {...item} key={i} />
+      ))}
+    </CommentListCon>
   )
 }

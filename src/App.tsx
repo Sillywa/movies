@@ -8,12 +8,11 @@ import want_active from "@a/imgs/want_active.svg";
 import profile from "@a/imgs/profile.svg";
 import profile_active from "@a/imgs/profile_active.svg";
 
-import "@a/styles/base.css";
-
 import Movies from "@/pages/movies/Movies";
 import Wants from "@/pages/wants/Wants";
 import Profile from "@/pages/profile/Profile";
 import Detail from "@/pages/detail/Detail";
+
 
 import { Route, Switch, Redirect } from "react-router-dom";
 

@@ -9,6 +9,7 @@ import Info from "./childComps/Info"
 import Introduce from "./childComps/Introduce"
 import ActorList from "./childComps/actors/ActorList"
 import SimilarList from "./childComps/similar/SimilarList"
+import ComList from "./childComps/comments/ComList"
 
 interface IParams {
   id: string;
@@ -25,10 +26,17 @@ interface ISimilar {
   name: string;
 }
 
+interface IComment {
+  name: string;
+  date: string;
+  star: string;
+  content: string;
+}
+
 interface IState {
   actors: Array<string>;
   artist_list: Array<IArtist>;
-  comments:Array<Object>;
+  comments:Array<IComment>;
   date: Array<string>;
   detail: string;
   director: string;
@@ -42,8 +50,6 @@ interface IState {
   type:Array<string>;
   writer: string;
 }
-
-
 
 const Detail = () => {
   let { id }: IParams = useParams();
@@ -70,15 +76,15 @@ const Detail = () => {
       setData(res.data)
     })
   }, [])
-  console.log(data);
   return (
       
       <DetailContainer>
         <Header title="电影详情" back={true}></Header>
         <Info {...data} />
         <Introduce {...data} />
-        <ActorList data={data.artist_list} />
-        <SimilarList data={data.similar} />
+        <ActorList actors={data.artist_list} />
+        <SimilarList similars={data.similar} />
+        <ComList comments={data.comments} />
       </DetailContainer>
     
   );
