@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const SimilarCon = styled.div`
-  padding: 15px;
   border-top: 1px solid #eee;
   header {
     font-size: 1.4rem;

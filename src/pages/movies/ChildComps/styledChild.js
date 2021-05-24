@@ -46,7 +46,6 @@ const MovieListCon = styled.div`
   right: 0;
   bottom: 56px;
   background-color: #fff;
-  padding: 5px 0;
   .loading {
     width: 100%;
     text-align: center;

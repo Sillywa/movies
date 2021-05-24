@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Header from "@c/header/Header";
-import {getDetail} from "@/api"
+import { getDetail } from "@/api";
 import { DetailContainer } from "./styledDetail";
 
-import Info from "./childComps/Info"
-import Introduce from "./childComps/Introduce"
-import ActorList from "./childComps/actors/ActorList"
-import SimilarList from "./childComps/similar/SimilarList"
-import ComList from "./childComps/comments/ComList"
+import Info from "./childComps/Info";
+import Introduce from "./childComps/Introduce";
+import ActorList from "./childComps/actors/ActorList";
+import SimilarList from "./childComps/similar/SimilarList";
+import ComList from "./childComps/comments/ComList";
 
 interface IParams {
   id: string;
@@ -36,7 +36,7 @@ interface IComment {
 interface IState {
   actors: Array<string>;
   artist_list: Array<IArtist>;
-  comments:Array<IComment>;
+  comments: Array<IComment>;
   date: Array<string>;
   detail: string;
   director: string;
@@ -47,7 +47,7 @@ interface IState {
   similar: Array<ISimilar>;
   star: number;
   times: number;
-  type:Array<string>;
+  type: Array<string>;
   writer: string;
 }
 
@@ -57,7 +57,7 @@ const Detail = () => {
     actors: [],
     artist_list: [],
     comments: [],
-    date: [] ,
+    date: [],
     detail: "",
     director: "",
     evaluate: "",
@@ -68,25 +68,25 @@ const Detail = () => {
     star: 0,
     times: 0,
     type: [],
-    writer: ""
+    writer: "",
   });
 
   useEffect(() => {
-    getDetail(parseInt(id)).then(res => {
-      setData(res.data)
-    })
-  }, [])
+    getDetail(parseInt(id)).then((res) => {
+      setData(res.data);
+    });
+  }, []);
   return (
-      
+    <div>
+      <Header title="电影详情" back={true}></Header>
       <DetailContainer>
-        <Header title="电影详情" back={true}></Header>
         <Info {...data} />
         <Introduce {...data} />
         <ActorList actors={data.artist_list} />
         <SimilarList similars={data.similar} />
         <ComList comments={data.comments} />
       </DetailContainer>
-    
+    </div>
   );
 };
 

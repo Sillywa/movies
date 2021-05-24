@@ -3,6 +3,9 @@ import Star from "@/pages/movies/ChildComps/Star"
 
 import {InfoContainer} from "./styledInfo"
 
+import want_to_see from "@a/imgs/want_to_see.svg"
+import like from "@a/imgs/like.svg"
+
 interface IProps {
   image:string;
   movie_name: string;
@@ -25,6 +28,14 @@ export default function Info({movie_name, times, date, evaluate, star, director,
         <p>{date[0]}</p>
         <p>{evaluate}</p>
         <div className="img">
+          <div className="want_btn">
+            <img className="icon" src={want_to_see} alt="" />
+            <p className="want">想看</p>
+          </div> 
+          <div className="want_btn">
+            <img className="icon" src={like} alt="" />
+            <p className="want">看过</p>
+          </div> 
           <img src={image} alt="" />
         </div>
       </div>

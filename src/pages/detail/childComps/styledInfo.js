@@ -23,6 +23,29 @@ const InfoContainer = styled.div`
       position: absolute;
       top: 50%;
       right: 15px;
+      left: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .want_btn {
+        display: flex;
+        align-items: center;
+        padding: 5px 20px;
+        background: #fff;
+        border-radius: 4px;
+        margin-top: 15px;
+        box-shadow: 0px 2px 5px #969696;
+      }
+      .want {
+        height: 20px;
+        color: #000;
+        font-weight: bold;
+      }
+      img.icon {
+        width: 20px;
+        height: 20px;
+        margin-right:10px;
+      }
       img {
         width: 90px;
         border-radius: 5px;

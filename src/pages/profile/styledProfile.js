@@ -14,7 +14,7 @@ const ProfileCon = styled.div`
     margin: 10px;
     padding: 0;
   }
-  .panel-header {
+  header.panel-header {
     font-size: 1.2rem;
     padding: 10px;
     margin-top: 10px;

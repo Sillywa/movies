@@ -1,6 +1,7 @@
 import React from "react";
 import ImgItem from "../common/ImgItem";
-import {SimilarCon} from "./styledSimilar"
+import { SimilarCon } from "./styledSimilar";
+import Panel from "@c/panel/Panel";
 interface IProps {
   similars: Array<{ img: string; name: string }>;
 }
@@ -8,13 +9,13 @@ interface IProps {
 export default function SimilarList({ similars }: IProps) {
   return (
     <SimilarCon>
-      <header>相似推荐</header>
-      <div className="content">
-        {similars.map((item, i) => (
-          <ImgItem image={item.img} describe={[item.name]} key={i} />
-        ))}
-      </div>  
-      
+      <Panel title="相似推荐">
+        <div className="content">
+          {similars.map((item, i) => (
+            <ImgItem image={item.img} describe={[item.name]} key={i} />
+          ))}
+        </div>
+      </Panel>
     </SimilarCon>
   );
 }

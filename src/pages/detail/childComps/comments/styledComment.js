@@ -21,7 +21,6 @@ border-top: 1px solid #eee;
   }
 `;
 export const CommentListCon = styled.div`
-  padding: 15px;
   border-top: 1px solid #eee;
   &>header {
     font-size: 1.4rem;
