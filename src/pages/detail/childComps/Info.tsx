@@ -1,41 +1,78 @@
-import React from 'react'
-import Star from "@/pages/movies/ChildComps/Star"
+import React from "react";
+import Star from "@/pages/movies/ChildComps/Star";
 
-import {InfoContainer} from "./styledInfo"
+import { addWant } from "@/pages/wants/actions";
 
-import want_to_see from "@a/imgs/want_to_see.svg"
-import like from "@a/imgs/like.svg"
+import { InfoContainer } from "./styledInfo";
+import { connect } from "react-redux";
 
+import want_to_see from "@a/imgs/want_to_see.svg";
+import like from "@a/imgs/like.svg";
+interface IWanted {
+  serial_number: number;
+  [propertyName: string]: any;
+}
 interface IProps {
-  image:string;
+  image: string;
   movie_name: string;
   times: number;
   date: Array<string>;
   evaluate: string;
-  star:number;
+  star: number;
   director: string;
   writer: string;
   type: Array<string>;
   actors: Array<string>;
+  handleClick?: Function;
+  describe: string;
+  introduce: string;
+  serial_number: number;
+  wantedMovies?: Array<IWanted>;
 }
-
-export default function Info({movie_name, times, date, evaluate, star, director, writer, type, actors, image}:IProps) {
+function Info({
+  movie_name,
+  times,
+  date,
+  evaluate,
+  star,
+  director,
+  writer,
+  type,
+  actors,
+  image,
+  handleClick,
+  serial_number,
+  wantedMovies,
+}: IProps) {
   return (
     <InfoContainer image={image.replace(/\\/g, "")}>
       <div className="abstract">
         <header>{movie_name}</header>
-        <p><span>{times}</span>分钟</p>
+        <p>
+          <span>{times}</span>分钟
+        </p>
         <p>{date[0]}</p>
         <p>{evaluate}</p>
         <div className="img">
-          <div className="want_btn">
-            <img className="icon" src={want_to_see} alt="" />
-            <p className="want">想看</p>
-          </div> 
+          {wantedMovies &&
+          wantedMovies.some((item) => item.serial_number === serial_number) ? (
+            <div className="want_btn">
+              <p className="want">已想看</p>
+            </div>
+          ) : (
+            <div
+              className="want_btn"
+              onClick={() => handleClick && handleClick()}
+            >
+              <img className="icon" src={want_to_see} alt="" />
+              <p className="want">想看</p>
+            </div>
+          )}
+
           <div className="want_btn">
             <img className="icon" src={like} alt="" />
             <p className="want">看过</p>
-          </div> 
+          </div>
           <img src={image} alt="" />
         </div>
       </div>
@@ -43,7 +80,7 @@ export default function Info({movie_name, times, date, evaluate, star, director,
         <div className="title">{movie_name}</div>
         <div className="star-content">
           <span className="name">评分</span>
-          <Star star={star} /> 
+          <Star star={star} />
           <span>{star}</span>
         </div>
         <div>
@@ -63,7 +100,41 @@ export default function Info({movie_name, times, date, evaluate, star, director,
           <span>{actors.join("/")}</span>
         </div>
       </div>
-    
     </InfoContainer>
-  )
+  );
 }
+
+const mapStateToProps = (state: Array<IWanted>) => {
+  return {
+    wantedMovies: state,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Function, ownProps: IProps) => {
+  const {
+    movie_name,
+    evaluate,
+    star,
+    introduce,
+    describe,
+    image,
+    serial_number,
+  } = ownProps;
+  return {
+    handleClick: () => {
+      dispatch(
+        addWant({
+          movie_name,
+          evaluate,
+          star,
+          introduce,
+          describe,
+          image,
+          serial_number,
+        })
+      );
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Info);

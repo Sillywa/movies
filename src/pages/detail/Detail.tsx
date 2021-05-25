@@ -49,6 +49,9 @@ interface IState {
   times: number;
   type: Array<string>;
   writer: string;
+  describe: string;
+  introduce:string;
+  serial_number: number;
 }
 
 const Detail = () => {
@@ -69,6 +72,9 @@ const Detail = () => {
     times: 0,
     type: [],
     writer: "",
+    describe: "",
+    introduce:"",
+    serial_number: 0
   });
 
   useEffect(() => {
