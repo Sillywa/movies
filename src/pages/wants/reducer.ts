@@ -4,7 +4,7 @@ interface IAction {
   type: string;
   [propertyName:string]:any;
 }
-const reducer = (state:Array<Object> = [], action:IAction):Array<Object> => {
+const wantReducer = (state:Array<Object> = [], action:IAction):Array<Object> => {
   switch(action.type){
     case ADD_WANT:
       return [
@@ -15,4 +15,4 @@ const reducer = (state:Array<Object> = [], action:IAction):Array<Object> => {
       return state
   }
 }
-export default reducer
+export default wantReducer

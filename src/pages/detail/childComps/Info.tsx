@@ -8,6 +8,10 @@ import { connect } from "react-redux";
 
 import want_to_see from "@a/imgs/want_to_see.svg";
 import like from "@a/imgs/like.svg";
+interface IState {
+  tabReducer: string;
+  wantReducer: Array<IWanted>;
+}
 interface IWanted {
   serial_number: number;
   [propertyName: string]: any;
@@ -104,9 +108,9 @@ function Info({
   );
 }
 
-const mapStateToProps = (state: Array<IWanted>) => {
+const mapStateToProps = (state: IState) => {
   return {
-    wantedMovies: state,
+    wantedMovies: state.wantReducer,
   };
 };
 

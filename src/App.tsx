@@ -13,14 +13,27 @@ import Wants from "@/pages/wants/Wants";
 import Profile from "@/pages/profile/Profile";
 import Detail from "@/pages/detail/Detail";
 
+import { connect } from "react-redux";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
-const App = () => (
+import { changeTab } from "./appActions";
+
+interface IState {
+  tabReducer: string;
+  wantReducer: Array<Object>;
+}
+
+interface IProps {
+  defaultActiveKey?: string;
+  onClick?: Function;
+}
+
+const App = ({ defaultActiveKey, onClick }: IProps) => (
   <div id="app">
     <Switch>
       <Route path="/home">
-        <TabBar defaultActiveKey="1">
+        <TabBar defaultActiveKey={defaultActiveKey} onChange={onClick}>
           <TabBarItem
             tabKey="1"
             icon={movies}
@@ -50,11 +63,25 @@ const App = () => (
         </TabBar>
       </Route>
       <Route path="/detail/:id">
-        <Detail></Detail> 
+        <Detail></Detail>
       </Route>
       <Redirect from="/" to="/home" />
     </Switch>
   </div>
 );
 
-export default App;
+const mapStateToProps = (state: IState) => {
+  return {
+    defaultActiveKey: state.tabReducer,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Function) => {
+  return {
+    onClick: (key: string) => {
+      dispatch(changeTab(key));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

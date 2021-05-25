@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Header from "@c/header/Header";
 import WantList from "./ChildComps/WantList";
 
@@ -8,6 +8,11 @@ import { WantsCon } from "./styledWants";
 
 interface IProps {
   data?: Array<any>;
+}
+
+interface IState {
+  tabReducer: string;
+  wantReducer: Array<Object>;
 }
 
 const Wants = (props: IProps) => {
@@ -27,9 +32,9 @@ const Wants = (props: IProps) => {
   );
 };
 
-const mapStateToProps = (state: Array<Object>) => {
+const mapStateToProps = (state:IState) => {
   return {
-    data: state,
+    data: state.wantReducer,
   };
 };
 
