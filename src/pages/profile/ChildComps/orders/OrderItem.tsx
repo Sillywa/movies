@@ -2,7 +2,7 @@ import React from "react";
 
 import { OrderItemCon } from "./styledOrders"
 
-interface IProps {
+type IProps = {
   icon: string;
   title: string;
 }

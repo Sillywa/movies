@@ -1,7 +1,7 @@
 import React from "react";
 import { TabItemContainer } from "./StyledTab";
 
-interface Item {
+type Item = {
   tabKey: string;
   icon: string;
   activeIcon: string;

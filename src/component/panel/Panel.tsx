@@ -1,15 +1,12 @@
 import React from "react";
 import {PanelCon} from "./styledPanel"
 
-interface IProps {
+type IProps = {
   title: string,
-  children:React.ReactElement|Array<React.ReactElement>,
   border?: string;
 }
 
-
-
-const Panel = ({title, children, border}:IProps) => (
+const Panel:React.FC<IProps> = ({title, children, border}) => (
   <PanelCon border={border} className="panel">
     <header className="panel-header">{title}</header>
     <div className="panel-content">

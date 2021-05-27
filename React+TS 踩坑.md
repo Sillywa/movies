@@ -216,5 +216,31 @@
    yarn add -D @types/react-router-dom
    ```
 
+6. **children 属性频繁在 Props 里面定义**
+
+   使用 React.FC 定义函数式组件可以避免在 type 类型里面定义 children 属性
+
+   ```tsx
+   type AppProps = {
+   
+     message: string
+   
+   }
+   
+   
+   
+   const App: React.FC<AppProps> = ({ message, children }) => (
+   
+     <div>
+   
+       {message}
+   
+       {children}
+   
+     </div>
+   
+   )
+   ```
+
    
 

@@ -6,17 +6,17 @@ import { connect } from "react-redux";
 
 import { WantsCon } from "./styledWants";
 
-interface IProps {
+type IProps = {
   data?: Array<any>;
 }
 
-interface IState {
+type IState = {
   tabReducer: string;
   wantReducer: Array<Object>;
 }
 
 const Wants = (props: IProps) => {
-  console.log(props.data);
+  // console.log(props.data);
   return props.data ? (
     <WantsCon className="wants">
       <Header title="想看" />

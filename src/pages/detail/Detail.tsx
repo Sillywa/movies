@@ -11,29 +11,29 @@ import ActorList from "./childComps/actors/ActorList";
 import SimilarList from "./childComps/similar/SimilarList";
 import ComList from "./childComps/comments/ComList";
 
-interface IParams {
+type IParams = {
   id: string;
 }
 
-interface IArtist {
+type IArtist = {
   img: string;
   name: string;
   role: string;
 }
 
-interface ISimilar {
+type ISimilar = {
   img: string;
   name: string;
 }
 
-interface IComment {
+type IComment = {
   name: string;
   date: string;
   star: string;
   content: string;
 }
 
-interface IState {
+type IState = {
   actors: Array<string>;
   artist_list: Array<IArtist>;
   comments: Array<IComment>;

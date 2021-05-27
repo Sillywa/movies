@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { WantItemContainer } from "./styledChild";
 
-interface IWantItem {
+type IWantItem = {
   describe: string;
   evaluate: string;
   image: string;

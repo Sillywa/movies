@@ -2,7 +2,7 @@ import React from "react";
 
 import {CardCon} from "./styledCards"
 
-interface IProps {
+type IProps = {
   icon: string;
   num: number;
   title: string;

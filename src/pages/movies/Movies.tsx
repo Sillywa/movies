@@ -1,62 +1,66 @@
-import React, { Component, createRef } from 'react'
-import Header from '@c/header/Header'
-import MoviesList from './ChildComps/MoviesList'
+import React, { useEffect, useRef, useState } from "react";
+import Header from "@c/header/Header";
+import MoviesList from "./ChildComps/MoviesList";
 
-import { MovieCon } from './styledMovies';
+import { MovieCon } from "./styledMovies";
 
 import { getMovies } from "@/api";
 
-import {debounce} from "@/utils"
+import { debounce } from "@/utils";
 
-interface IState {
-  data: Array<any>;
+type IState = {
+  movies: Array<any>;
   nextPage: number;
   pageSize: number;
 }
 
-export default class Movies extends Component<{}, IState> {
-  loading: React.RefObject<unknown>;
-  constructor(props:any) {
-    super(props)
-    this.loading = createRef()
-  }
-  readonly state:Readonly<IState> = {
-    data: [],
-    nextPage: 1,
-    pageSize: 18
-  }
+// const MemoHeader = memo(Header)
 
-  handleScroll = debounce(() => {
-    const element = this.loading.current as HTMLElement
-    const bodyHeight = document.body.clientHeight || document.documentElement.clientHeight
-    if(element) {
-      const top = element.getBoundingClientRect().top
-      if(top < bodyHeight) {
-        this.getMoviesList()
+const Movies = () => {
+  const [data, setData] = useState<IState>({
+    movies: [],
+    nextPage: 1,
+    pageSize: 18,
+  });
+
+  const loading: React.RefObject<unknown> = useRef();
+
+  const getMoviesList = () => {
+    const { nextPage, pageSize, movies } = data;
+    getMovies(nextPage, pageSize).then((res) => {
+      setData({
+        movies: movies.concat(res.data),
+        nextPage: nextPage + 1,
+        pageSize: pageSize,
+      });
+    });
+  };
+
+  const handleScroll = debounce(() => {
+    const element = loading.current as HTMLElement;
+    const bodyHeight =
+      document.body.clientHeight || document.documentElement.clientHeight;
+    if (element) {
+      const top = element.getBoundingClientRect().top;
+      if (top < bodyHeight) {
+        getMoviesList();
       }
     }
-    
-  }, 1000) 
+  }, 1000);
+  
+  useEffect(() => {
+    getMoviesList()
+  }, []);
+  return (
+    <MovieCon className="movies">
+      <Header title="电影" />
+      <MoviesList
+        data={data.movies}
+        ref={loading}
+        handleScroll={handleScroll}
+      />
+    </MovieCon>
+  );
+};
 
-  getMoviesList = () => {
-    const { nextPage, pageSize } = this.state
-    getMovies(nextPage, pageSize).then(res => {
-      this.setState(preState => ({
-        data: preState.data.concat(res.data),
-        nextPage: preState.nextPage + 1
-      }))
-    })
-  }
-
-  render() {
-    return (
-      <MovieCon className="movies">
-        <Header title="电影" />
-        <MoviesList data={this.state.data} ref={this.loading} handleScroll={this.handleScroll} />
-      </MovieCon>
-    )
-  }
-  componentDidMount() {
-    this.getMoviesList()
-  }
-}
+export default Movies;

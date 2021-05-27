@@ -3,7 +3,7 @@ import WantItem from "./WantItem";
 
 import { WantListContainer } from "./styledChild";
 
-interface IProps {
+type IProps = {
   data: Array<any>;
   handleScroll?: Function;
 }

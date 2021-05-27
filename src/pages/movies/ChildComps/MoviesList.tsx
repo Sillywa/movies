@@ -2,7 +2,7 @@ import React, {forwardRef} from "react";
 import MovieItem from "./MovieItem"
 import {MovieListCon} from "./styledChild"
 
-interface IProps {
+type IProps = {
   data: Array<any>,
   handleScroll: Function
 }

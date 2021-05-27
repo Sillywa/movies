@@ -5,7 +5,7 @@ import star_active from "@a/imgs/star_active.svg"
 
 import { StarContainer } from "./styledChild"
 
-interface IProps {
+type IProps = {
   star: number
 }
 

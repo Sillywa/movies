@@ -1,7 +1,7 @@
 import React from "react";
 import { IntroContainer } from "./styledIntro";
 import Panel from "@c/panel/Panel";
-interface IProps {
+type IProps = {
   detail: string;
 }
 

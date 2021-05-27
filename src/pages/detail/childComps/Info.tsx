@@ -8,15 +8,15 @@ import { connect } from "react-redux";
 
 import want_to_see from "@a/imgs/want_to_see.svg";
 import like from "@a/imgs/like.svg";
-interface IState {
+type IState = {
   tabReducer: string;
   wantReducer: Array<IWanted>;
 }
-interface IWanted {
+type IWanted = {
   serial_number: number;
   [propertyName: string]: any;
 }
-interface IProps {
+type IProps = {
   image: string;
   movie_name: string;
   times: number;

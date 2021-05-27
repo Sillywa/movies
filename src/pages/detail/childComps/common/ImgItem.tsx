@@ -1,6 +1,6 @@
 import React from 'react'
 import {ImgContainer} from "./styledImg"
-interface IProps {
+type IProps = {
   image: string,
   describe: Array<string>
 }

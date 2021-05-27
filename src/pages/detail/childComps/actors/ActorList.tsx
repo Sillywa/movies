@@ -2,7 +2,7 @@ import React from "react";
 import ImgItem from "../common/ImgItem";
 import { ActorListCon } from "./styledActors";
 import Panel from "@c/panel/Panel"
-interface IProps {
+type IProps = {
   actors: Array<{ name: string; role: string; img: string }>;
 }
 
@@ -23,3 +23,4 @@ export default function ActorList({ actors }: IProps) {
     </ActorListCon>
   );
 }
+

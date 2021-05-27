@@ -2,7 +2,7 @@ import React from "react";
 import ImgItem from "../common/ImgItem";
 import { SimilarCon } from "./styledSimilar";
 import Panel from "@c/panel/Panel";
-interface IProps {
+type IProps = {
   similars: Array<{ img: string; name: string }>;
 }
 

@@ -5,7 +5,7 @@ import { MovieItemCon } from "./styledChild"
 
 import { useHistory } from "react-router-dom"
 
-interface IProps {
+type IProps = {
   image: string;
   movie_name: string;
   star: number;

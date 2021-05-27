@@ -2,14 +2,14 @@ import React from "react";
 import ComItem from "./ComItem";
 import { CommentListCon } from "./styledComment";
 import Panel from "@c/panel/Panel";
-interface IComment {
+type IComment = {
   name: string;
   date: string;
   star: string;
   content: string;
 }
 
-interface IProps {
+type IProps = {
   comments: Array<IComment>;
 }
 

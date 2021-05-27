@@ -3,7 +3,7 @@ import right from "@a/imgs/right.svg"
 
 import {ListItemCon} from "./styledLists"
 
-interface IProps {
+type IProps = {
   icon: string;
   title: string;
 }

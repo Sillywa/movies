@@ -1,7 +1,7 @@
 import React from 'react'
 import {CommentItemCon} from "./styledComment"
 
-interface IProps {
+type IProps = {
   name: string;
   date: string;
   star: string;
