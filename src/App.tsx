@@ -19,12 +19,12 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 import { changeTab } from "./appActions";
 
-interface IState {
+type IState = {
   tabReducer: string;
   wantReducer: Array<Object>;
 }
 
-interface IProps {
+type IProps = {
   defaultActiveKey?: string;
   onClick?: Function;
 }

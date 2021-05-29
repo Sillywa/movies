@@ -77,10 +77,13 @@ const Detail = () => {
     serial_number: 0
   });
 
+  const load = async () => {
+    const res = await getDetail(parseInt(id))
+    setData(res.data);
+  }
+
   useEffect(() => {
-    getDetail(parseInt(id)).then((res) => {
-      setData(res.data);
-    });
+    load()
   }, []);
   return (
     <div>

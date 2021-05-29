@@ -25,14 +25,13 @@ const Movies = () => {
 
   const loading: React.RefObject<unknown> = useRef();
 
-  const getMoviesList = () => {
+  const getMoviesList = async () => {
     const { nextPage, pageSize, movies } = data;
-    getMovies(nextPage, pageSize).then((res) => {
-      setData({
-        movies: movies.concat(res.data),
-        nextPage: nextPage + 1,
-        pageSize: pageSize,
-      });
+    const res = await getMovies(nextPage, pageSize)
+    setData({
+      movies: movies.concat(res.data),
+      nextPage: nextPage + 1,
+      pageSize: pageSize,
     });
   };
 
