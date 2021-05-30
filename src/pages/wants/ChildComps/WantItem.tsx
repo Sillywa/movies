@@ -1,6 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { WantItemContainer } from "./styledChild";
+
+import withToDetail from "@/hoc/withToDetail"
 
 type IWantItem = {
   describe: string;
@@ -9,14 +11,14 @@ type IWantItem = {
   introduce: string;
   movie_name: string;
   star: number;
-  serial_number: number;
+  handleClick: Function;
 }
 
 const WantItem = (props: IWantItem) => {
-  const history = useHistory();
-  const handleClick = () => history.push(`detail/${props.serial_number}`);
+  // const history = useHistory();
+  // const handleClick = () => history.push(`detail/${props.serial_number}`);
   return (
-    <WantItemContainer onClick={handleClick}>
+    <WantItemContainer onClick={props.handleClick}>
       <div className="left">
         <img src={props.image} alt="" />
       </div>
@@ -40,4 +42,4 @@ const WantItem = (props: IWantItem) => {
   );
 };
 
-export default WantItem;
+export default withToDetail(WantItem);

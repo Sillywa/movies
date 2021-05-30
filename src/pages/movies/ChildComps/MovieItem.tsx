@@ -3,21 +3,21 @@ import Star from "./Star";
 
 import { MovieItemCon } from "./styledChild"
 
-import { useHistory } from "react-router-dom"
+import withToDetail from "@/hoc/withToDetail"
 
 type IProps = {
   image: string;
   movie_name: string;
   star: number;
-  serial_number: number;
+  handleClick: Function;
 }
 
-const MovieItem = ({ image, movie_name, star, serial_number }: IProps) => {
-  const history = useHistory()
-  const handleClick = () => {
-    // 路由跳转
-    history.push(`/detail/${serial_number}`)
-  }
+const MovieItem = ({ image, movie_name, star, handleClick }: IProps) => {
+  // const history = useHistory()
+  // const handleClick = () => {
+  //   // 路由跳转
+  //   history.push(`/detail/${serial_number}`)
+  // }
   return (
     <MovieItemCon onClick={handleClick}>
       <img src={image} alt="" />
@@ -32,4 +32,4 @@ const MovieItem = ({ image, movie_name, star, serial_number }: IProps) => {
   );
 }
 
-export default MovieItem
+export default withToDetail(MovieItem)
