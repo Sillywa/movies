@@ -25,7 +25,7 @@ type IState = {
 }
 
 type IProps = {
-  defaultActiveKey?: string;
+  defaultActiveKey: string;
   onClick?: Function;
 }
 

@@ -8,17 +8,17 @@ import { TabBarContainer } from "./StyledTab";
 // }>
 
 type IProps = {
-  defaultActiveKey?: string;
+  defaultActiveKey: string;
   onChange?: Function;
 }
 
 // 将接口赋给组件，传入组件的属性和组件自身的state必须满足接口的标准
 
 const TabBar:React.FC<IProps> = ({defaultActiveKey, onChange, children}) => {
-    const [activeKey, setKey] = useState<string>("1")
+    const [activeKey, setKey] = useState<string>()
 
     useEffect(() => {
-      setKey(defaultActiveKey || "1")
+      setKey(defaultActiveKey)
     }, [defaultActiveKey])
   
     const handleClick = (key: string) => {

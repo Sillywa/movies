@@ -17,6 +17,8 @@ type IState = {
 // const MemoHeader = memo(Header)
 
 const Movies = () => {
+  console.log("movies render");
+  let isUnmounted = false
   const [data, setData] = useState<IState>({
     movies: [],
     nextPage: 1,
@@ -25,10 +27,11 @@ const Movies = () => {
 
   const loading: React.RefObject<unknown> = useRef();
 
-  const getMoviesList = async () => {
+  const getMoviesList = async (isUnmounted:boolean) => {
     const { nextPage, pageSize, movies } = data;
     const res = await getMovies(nextPage, pageSize)
-    setData({
+    
+    !isUnmounted && setData({
       movies: movies.concat(res.data),
       nextPage: nextPage + 1,
       pageSize: pageSize,
@@ -42,13 +45,17 @@ const Movies = () => {
     if (element) {
       const top = element.getBoundingClientRect().top;
       if (top < bodyHeight) {
-        getMoviesList();
+        getMoviesList(isUnmounted);
       }
     }
   }, 1000);
   
   useEffect(() => {
-    getMoviesList()
+    
+    getMoviesList(isUnmounted)
+    return () => {
+      isUnmounted = true
+    }
   }, []);
   return (
     <MovieCon className="movies">

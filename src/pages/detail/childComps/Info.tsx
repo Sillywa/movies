@@ -14,7 +14,7 @@ type IState = {
 }
 type IWanted = {
   serial_number: number;
-  [propertyName: string]: any;
+  // [propertyName: string]: any;
 }
 type IProps = {
   image: string;

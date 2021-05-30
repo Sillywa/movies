@@ -5,7 +5,6 @@ import { WantListContainer } from "./styledChild";
 
 type IProps = {
   data: Array<any>;
-  handleScroll?: Function;
 }
 // const WantList = React.forwardRef((props: IProps, ref:any) => (
 //   <WantListContainer onScroll={props.handleScroll}>
@@ -17,7 +16,7 @@ type IProps = {
 // ));
 
 const WantList = (props: IProps) => (
-  <WantListContainer onScroll={props.handleScroll}>
+  <WantListContainer>
     {props.data.map((item) => (
       <WantItem {...item} key={item.serial_number} />
     ))}

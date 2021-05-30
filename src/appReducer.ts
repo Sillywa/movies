@@ -1,7 +1,7 @@
 import {CHANGE_TAB} from "./appActions"
 interface IAction {
   type: string;
-  [propertyName:string]: any
+  id: string;
 }
 const tabReducer = (state:string = "1", action:IAction) => {
   switch(action.type) {

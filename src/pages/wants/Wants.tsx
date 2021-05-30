@@ -17,6 +17,7 @@ type IState = {
 
 const Wants = (props: IProps) => {
   // console.log(props.data);
+  console.log("want render");
   return props.data ? (
     <WantsCon className="wants">
       <Header title="想看" />

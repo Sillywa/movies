@@ -9,6 +9,7 @@ import Cards from "./ChildComps/cards/Cards";
 import { ProfileCon } from "./styledProfile";
 
 const Profile = () => {
+  console.log("profile render");
   return (
     <ProfileCon className="profile">
       {/* <Header title="我的" /> */}

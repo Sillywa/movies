@@ -9,9 +9,8 @@ type Item = {
   activeKey?: string;
   activeColor?: string;
   handleClick?: Function;
-  [propertyName: string]: any;
 }
-const TabBarItem = (props: Item) => {
+const TabBarItem:React.FC<Item> = (props) => {
   const isActive: boolean = props.activeKey === props.tabKey;
   const { tabKey, handleClick, activeIcon, icon, title, activeColor } = props;
   return (
