@@ -38,7 +38,7 @@ const App = ({ defaultActiveKey, onClick }: IProps) => (
             tabKey="1"
             icon={movies}
             activeIcon={movies_active}
-            title="电影"
+            title="主页"
           >
             <Movies />
           </TabBarItem>
